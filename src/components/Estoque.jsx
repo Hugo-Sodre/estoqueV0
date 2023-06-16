@@ -1,3 +1,7 @@
 export default function Estoque() {
-  return <h1>Teste</h1>;
+  return (
+    <div className="">
+      <div className=""></div>
+    </div>
+  );
 }
