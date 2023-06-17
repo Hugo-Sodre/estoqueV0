@@ -1,8 +1,10 @@
 import "./App.css";
 import Cadastro from "./components/Cadastro";
 import Estoque from "./components/Estoque";
-import List from "./components/List"
+
+
 function App() {
+
   return (
     <div
       div
@@ -15,7 +17,7 @@ function App() {
       </header>
       <main className="flex flex-col gap-6 mx-auto">
         <Cadastro />
-        <List />
+
       </main>
     </div>
   );

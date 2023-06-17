@@ -1,6 +1,29 @@
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import { initializeApp } from "firebase/app";
+import { getFirestore, getDocs, collection } from "firebase/firestore"
 export default function Cadastro() {
+
+  const firebaseApp = initializeApp({
+    apiKey: "AIzaSyBJfoGxu823gRq11CJsxHdMdgBDIHPA408",
+    authDomain: "estoque-6554a.firebaseapp.com",
+    projectId: "estoque-6554a",
+  });
+
+  const db = getFirestore(firebaseApp);
+  const productCollectionRef = collection(db, "Estoque");
+
+
+
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const data = await getDocs(productCollectionRef)
+      console.log(data.docs.map(doc => ((doc) => ({ ...doc.data(), id: doc.id }))));
+    };
+    getProducts()
+  }, []);
+
+
   const [productName, setProductName] = useState("");
   const [quantify, setQuantify] = useState(0);
 
